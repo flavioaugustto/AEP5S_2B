@@ -828,3 +828,11 @@ body{
 .manager-table-scroll::-webkit-scrollbar-track{
     background:transparent;
 }
+
+.home-action-link{
+    text-decoration:none;
+    text-align:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
