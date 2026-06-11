@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Central de Demandas Urbanas</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<div class="app">
+
+    <!-- HEADER -->
+    <header class="topbar">
+
+        <div class="left-section">
+
+            <button id="toggleSidebar" class="menu-btn">
+                <i class="bi bi-list"></i>
+            </button>
+
+            <h4 class="system-title">
+                Central de Demandas Urbanas
+            </h4>
+
+        </div>
+
+        <div class="right-section">
+
+            <button class="notification-btn">
+                <i class="bi bi-bell"></i>
+            </button>
+
+            <div class="user-photo"></div>
+
+            <span class="user-name">
+                    Usuário
+                </span>
+
+        </div>
+
+    </header>
+
+    <!-- CONTEÚDO -->
+    <div class="main-container">
+
+        <!-- SIDEBAR -->
+        <aside id="sidebar" class="sidebar collapsed">
+
+            <a href="index.html">
+                <i class="bi bi-house"></i>
+                <span>Home</span>
+            </a>
+
+            <a href="nova_solicitacao.html" class="active">
+                <i class="bi bi-plus-circle"></i>
+                <span>Nova Solicitação</span>
+            </a>
+
+            <a href="minhas_solicitacoes.html">
+                <i class="bi bi-card-list"></i>
+                <span>Minhas Solicitações</span>
+            </a>
+
+            <a href="atendimento.html">
+                <i class="bi bi-clipboard-check"></i>
+                <span>Atendimento</span>
+            </a>
+
+            <hr>
+
+            <a href="#">
+                <i class="bi bi-gear"></i>
+                <span>Configurações</span>
+            </a>
+
+        </aside>
+
+        <!-- CONTEUDO -->
+        <main class="content">
+            <div class="request-panel">
+
+                <div class="request-header">
+                    <h2>Nova Solicitação</h2>
+                    <p>Preencha todos os campos abaixo para registrar sua solicitação</p>
+                </div>
+
+                <form id="formSolicitacao" class="request-form">
+
+                    <div class="request-body">
+
+                        <div class="request-left">
+
+                            <div class="mb-4">
+                                <label for="titulo" class="form-label">Título *</label>
+                                <input type="text"
+                                       class="form-control"
+                                       id="titulo"
+                                       placeholder="Ex: Buraco na rua"
+                                       required>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="categoria" class="form-label">Categoria *</label>
+                                <select class="form-select" id="categoria" required>
+                                    <option value="">Selecione</option>
+                                    <option value="Infraestrutura">Infraestrutura</option>
+                                    <option value="Iluminação">Iluminação</option>
+                                    <option value="Zeladoria">Zeladoria</option>
+                                    <option value="Saúde">Saúde</option>
+                                    <option value="Meio ambiente">Meio ambiente</option>
+                                </select>
+                            </div>
+
+                            <div class="row mb-4">
+
+                                <div class="col-md-7">
+                                    <label for="endereco" class="form-label">Endereço *</label>
+                                    <input type="text"
+                                           class="form-control"
+                                           id="endereco"
+                                           placeholder="Localização"
+                                           required>
+                                </div>
+
+                                <div class="col-md-5">
+                                    <label for="prioridade" class="form-label">Prioridade *</label>
+                                    <select class="form-select" id="prioridade" required>
+                                        <option value="">Selecione</option>
+                                        <option value="BAIXA">Baixa</option>
+                                        <option value="MEDIA">Média</option>
+                                        <option value="ALTA">Alta</option>
+                                    </select>
+                                </div>
+
+                            </div>
+
+                            <div>
+                                <label for="descricao" class="form-label">Descrição *</label>
+                                <textarea class="form-control"
+                                          id="descricao"
+                                          rows="7"
+                                          placeholder="Contextualize o motivo da solicitação..."
+                                          required></textarea>
+                            </div>
+
+                        </div>
+
+                        <div class="request-divider"></div>
+
+                        <div class="request-right">
+
+                            <label class="form-label">Anexos</label>
+
+                            <div class="fake-upload">
+                                <i class="bi bi-cloud-arrow-up-fill"></i>
+
+                                <button type="button" class="fake-upload-btn">
+                                    Escolha os arquivos
+                                </button>
+
+                                <p>ou arraste e solte eles aqui</p>
+                            </div>
+
+                            <div class="form-check anonymous-check">
+                                <input class="form-check-input"
+                                       type="checkbox"
+                                       id="anonima">
+
+                                <label class="form-check-label" for="anonima">
+                                    Desejo enviar esta solicitação de modo anônimo
+                                </label>
+                            </div>
+
+                            <button type="submit" class="send-request-btn">
+                                Enviar Solicitação
+                            </button>
+
+                            <div id="mensagemSucesso"
+                                 class="alert alert-success mt-4 d-none">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </form>
+
+            </div>
+        </main>
+
+    </div>
+
+</div>
+
+<script src="js/sidebar.js"></script>
+<script src="js/nova_solicitacao.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+
+</html>

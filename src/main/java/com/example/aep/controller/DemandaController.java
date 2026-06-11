@@ -10,6 +10,7 @@ import com.example.aep.dto.CriarDemandaDTO;
 import com.example.aep.model.Demanda;
 import org.springframework.web.bind.annotation.*;
 import com.example.aep.model.enums.StatusDemanda;
+import com.example.aep.dto.AtualizacaoDTO;
 
 import java.util.List;
 
@@ -97,6 +98,11 @@ public class DemandaController {
                 id,
                 dto.getMensagem()
         );
+    }
+
+    @GetMapping("/atualizacoes")
+    public List<AtualizacaoDTO> ultimasAtualizacoes() {
+        return service.obterUltimasAtualizacoes();
     }
 
 }

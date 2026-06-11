@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Central de Demandas Urbanas</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<div class="app">
+
+    <!-- HEADER -->
+    <header class="topbar">
+
+        <div class="left-section">
+
+            <button id="toggleSidebar" class="menu-btn">
+                <i class="bi bi-list"></i>
+            </button>
+
+            <h4 class="system-title">
+                Central de Demandas Urbanas
+            </h4>
+
+        </div>
+
+        <div class="right-section">
+
+            <button class="notification-btn">
+                <i class="bi bi-bell"></i>
+            </button>
+
+            <div class="user-photo"></div>
+
+            <span class="user-name">
+                    Usuário
+                </span>
+
+        </div>
+
+    </header>
+
+    <!-- CONTEÚDO -->
+    <div class="main-container">
+
+        <!-- SIDEBAR -->
+        <aside id="sidebar" class="sidebar collapsed">
+
+            <a href="index.html">
+                <i class="bi bi-house"></i>
+                <span>Home</span>
+            </a>
+
+            <a href="nova_solicitacao.html">
+                <i class="bi bi-plus-circle"></i>
+                <span>Nova Solicitação</span>
+            </a>
+
+            <a href="minhas_solicitacoes.html" class="active">
+                <i class="bi bi-card-list"></i>
+                <span>Minhas Solicitações</span>
+            </a>
+
+            <a href="atendimento.html">
+                <i class="bi bi-clipboard-check"></i>
+                <span>Atendimento</span>
+            </a>
+
+            <hr>
+
+            <a href="#">
+                <i class="bi bi-gear"></i>
+                <span>Configurações</span>
+            </a>
+
+        </aside>
+
+        <!-- CONTEUDO -->
+        <main class="content">
+            <div class="list-panel">
+
+                <div class="list-header">
+                    <input type="text"
+                           id="campoPesquisa"
+                           class="form-control"
+                           placeholder="Pesquisar por título ou protocolo">
+
+                    <select id="filtroPrioridade" class="form-select">
+                        <option value="">Prioridade</option>
+                        <option value="BAIXA">Baixa</option>
+                        <option value="MEDIA">Média</option>
+                        <option value="ALTA">Alta</option>
+                    </select>
+
+                    <select id="filtroStatus" class="form-select">
+                        <option value="">Status</option>
+                        <option value="PENDENTE">Pendente</option>
+                        <option value="EM_ANALISE">Em análise</option>
+                        <option value="EM_ANDAMENTO">Em andamento</option>
+                        <option value="CONCLUIDA">Concluída</option>
+                    </select>
+                </div>
+
+                <div class="table-container">
+
+                    <table class="table table-hover align-middle">
+                        <thead>
+                        <tr>
+                            <th>Protocolo</th>
+                            <th>Título</th>
+                            <th>Categoria</th>
+                            <th>Prioridade</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                        </thead>
+
+                        <tbody id="tabelaDemandas">
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+        </main>
+
+    </div>
+
+</div>
+
+<script src="js/sidebar.js"></script>
+<script src="js/minhas-solicitacoes.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+
+</html>

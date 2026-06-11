@@ -2,13 +2,12 @@ package com.example.aep.service;
 
 import com.example.aep.dto.CriarDemandaDTO;
 import com.example.aep.dto.DashboardDTO;
-import com.example.aep.model.Comentario;
-import com.example.aep.model.Demanda;
-import com.example.aep.model.HistoricoStatus;
-import com.example.aep.model.enums.Prioridade;
-import com.example.aep.model.enums.StatusDemanda;
+import com.example.aep.model.*;
+import com.example.aep.model.enums.*;
 import com.example.aep.repository.DemandaRepository;
 import org.springframework.stereotype.Service;
+import com.example.aep.dto.AtualizacaoDTO;
+import java.util.Comparator;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -102,16 +101,22 @@ public class DemandaService {
 
         long total = demandas.size();
 
-        long pendentes = demandas.stream().filter(d -> d.getStatus() == StatusDemanda.PENDENTE).count();
+        long emAnalise = demandas.stream()
+                .filter(d -> d.getStatus() == StatusDemanda.EM_ANALISE)
+                .count();
 
-        long emAnalise = demandas.stream().filter(d -> d.getStatus() == StatusDemanda.EM_ANALISE).count();
+        long emAndamento = demandas.stream()
+                .filter(d -> d.getStatus() == StatusDemanda.EM_ANDAMENTO)
+                .count();
 
-        long concluidas = demandas.stream().filter(d -> d.getStatus() == StatusDemanda.CONCLUIDA).count();
+        long concluidas = demandas.stream()
+                .filter(d -> d.getStatus() == StatusDemanda.CONCLUIDA)
+                .count();
 
         return new DashboardDTO(
                 total,
-                pendentes,
                 emAnalise,
+                emAndamento,
                 concluidas
         );
     }
@@ -169,5 +174,25 @@ public class DemandaService {
                 .add(comentario);
 
         return repository.save(demanda);
+    }
+
+    public List<AtualizacaoDTO> obterUltimasAtualizacoes() {
+
+        return repository.findAll()
+                .stream()
+                .flatMap(demanda ->
+                        demanda.getHistorico()
+                                .stream()
+                                .map(historico ->
+                                        new AtualizacaoDTO(
+                                                demanda.getProtocolo(),
+                                                demanda.getTitulo(),
+                                                historico.getDescricao(),
+                                                historico.getDataRegistro()
+                                        )
+                                )
+                )
+                .sorted(Comparator.comparing(AtualizacaoDTO::getDataRegistro).reversed())
+                .toList();
     }
 }
