@@ -673,3 +673,158 @@ body{
     color:#6b7280;
     font-style:italic;
 }
+
+.attendance-panel{
+    max-width:1200px;
+    margin:20px auto 0 auto;
+    height:calc(100vh - 130px);
+    display:flex;
+    flex-direction:column;
+}
+
+.attendance-panel h2{
+    font-weight:800;
+    margin-bottom:20px;
+}
+
+.attendance-table-wrapper{
+    flex:1;
+    min-height:0;
+    overflow-y:auto;
+    background:white;
+    border-radius:14px;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+
+.attendance-table{
+    margin:0;
+}
+
+.attendance-table thead{
+    background:#eff6ff;
+    position:sticky;
+    top:0;
+    z-index:2;
+}
+
+.attendance-table th{
+    padding:18px;
+    font-weight:700;
+    color:#1f2937;
+}
+
+.attendance-table td{
+    padding:18px;
+    border-bottom:1px solid #e5e7eb;
+}
+
+.attendance-actions{
+    display:flex;
+    gap:12px;
+    align-items:center;
+}
+
+.btn-attendance{
+    border:none;
+    border-radius:18px;
+    padding:7px 16px;
+    font-weight:700;
+    color:white;
+    background:#2563eb;
+    transition:.2s;
+}
+
+.btn-attendance:hover{
+    background:#1d4ed8;
+}
+
+.btn-status{
+    background:#1d4ed8;
+}
+
+.btn-status:hover{
+    background:#1e40af;
+}
+
+.status-select{
+    border:1px solid #d1d5db;
+    border-radius:18px;
+    padding:7px 12px;
+    font-weight:600;
+    background:white;
+}
+
+.manager-page{
+    display:grid;
+    grid-template-columns:1.5fr 1fr;
+    gap:30px;
+}
+
+.manager-left{
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+}
+
+.manager-left h1{
+    font-weight:800;
+    margin:0;
+}
+
+.manager-left p{
+    margin:0;
+}
+
+.manager-card{
+    background:#f8fafc;
+    border-radius:15px;
+    padding:25px;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+
+.manager-card h3,
+.manager-card h2{
+    margin-bottom:20px;
+    font-weight:800;
+}
+
+.full-height{
+    height:100%;
+}
+
+.manager-btn{
+    border:none;
+    background:#2563eb;
+    color:white;
+    border-radius:25px;
+    padding:12px 25px;
+    font-weight:700;
+    transition:.2s;
+}
+
+.manager-btn:hover{
+    background:#1d4ed8;
+}
+
+.manager-table-scroll{
+    max-height:260px;
+    overflow-y:auto;
+    min-height:0;
+}
+
+.manager-table{
+    margin:0;
+}
+
+.manager-table-scroll::-webkit-scrollbar{
+    width:8px;
+}
+
+.manager-table-scroll::-webkit-scrollbar-thumb{
+    background:#cfcfcf;
+    border-radius:10px;
+}
+
+.manager-table-scroll::-webkit-scrollbar-track{
+    background:transparent;
+}

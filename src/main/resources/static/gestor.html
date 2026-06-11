@@ -1,10 +1,195 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Central de Demandas Urbanas</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<div class="app">
+
+    <!-- HEADER -->
+    <header class="topbar">
+
+        <div class="left-section">
+
+            <button id="toggleSidebar" class="menu-btn">
+                <i class="bi bi-list"></i>
+            </button>
+
+            <h4 class="system-title">
+                Central de Demandas Urbanas
+            </h4>
+
+        </div>
+
+        <div class="right-section">
+
+            <button class="notification-btn">
+                <i class="bi bi-bell"></i>
+            </button>
+
+            <div class="user-photo"></div>
+
+            <span class="user-name">
+                    Gestor
+                </span>
+
+        </div>
+
+    </header>
+
+    <!-- CONTEÚDO -->
+    <div class="main-container">
+
+        <!-- SIDEBAR -->
+        <aside id="sidebar" class="sidebar collapsed">
+
+            <a href="gestor.html" class="active">
+                <i class="bi bi-house"></i>
+                <span>Home</span>
+            </a>
+
+            <a href="nova_solicitacao.html">
+                <i class="bi bi-plus-circle"></i>
+                <span>Nova Solicitação</span>
+            </a>
+
+            <a href="minhas_solicitacoes.html">
+                <i class="bi bi-card-list"></i>
+                <span>Minhas Solicitações</span>
+            </a>
+
+            <hr>
+
+            <a href="#">
+                <i class="bi bi-gear"></i>
+                <span>Configurações</span>
+            </a>
+
+        </aside>
+
+        <!-- CONTEUDO -->
+        <main class="content">
+            <div class="manager-page">
+
+                <div class="manager-left">
+
+                    <h1>Olá, Gestor!</h1>
+
+                    <p>Gerencie as solicitações do sistema</p>
+
+                    <!-- SOLICITAÇÕES -->
+
+                    <div class="manager-card">
+
+                        <h3>Solicitações pendentes</h3>
+
+                        <div class="manager-table-scroll">
+                            <table class="table">
+
+                                <thead>
+                                <tr>
+                                    <th>Protocolo</th>
+                                    <th>Título</th>
+                                    <th>Prioridade</th>
+                                    <th>Ações</th>
+                                </tr>
+                                </thead>
+
+                                <tbody id="gestorDemandas">
+                                </tbody>
+
+                            </table>
+                        </div>
+
+                        <button class="manager-btn">
+                            Ver todos
+                        </button>
+
+                    </div>
+
+                    <!-- RELATÓRIOS -->
+
+                    <div class="manager-card">
+
+                        <h3>Relatórios Rápidos</h3>
+
+                        <div id="relatoriosRapidos">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- ATRIBUIR RESPONSÁVEL -->
+
+                <div class="manager-right">
+
+                    <div class="manager-card full-height">
+
+                        <h2>Atribuir Responsável</h2>
+
+                        <label>Solicitação</label>
+
+                        <select id="demandaSelect" class="form-select mb-4">
+                        </select>
+
+                        <label>Responsável</label>
+
+                        <select id="responsavelSelect" class="form-select mb-4">
+
+                            <option>Zeladoria</option>
+
+                            <option>Infraestrutura</option>
+
+                            <option>Iluminação</option>
+
+                            <option>Obras</option>
+
+                        </select>
+
+                        <label>Mensagem</label>
+
+                        <textarea
+                                id="mensagemResponsavel"
+                                class="form-control mb-4"
+                                rows="8">
+            </textarea>
+
+                        <button
+                                onclick="atribuirResponsavel()"
+                                class="manager-btn">
+
+                            Atribuir
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </main>
+
+    </div>
+
+</div>
+
+<script src="js/sidebar.js"></script>
+<script src="js/gestor.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
+
 </html>
